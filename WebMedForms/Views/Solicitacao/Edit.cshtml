@@ -1,0 +1,128 @@
+﻿@model WebMedForms.Models.Solicitacao
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Solicitação</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NomeMedicoSolicitante" class="control-label"></label>
+                <input asp-for="NomeMedicoSolicitante" class="form-control" />
+                <span asp-validation-for="NomeMedicoSolicitante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CrmMedicoSolicitante" class="control-label"></label>
+                <input asp-for="CrmMedicoSolicitante" class="form-control" />
+                <span asp-validation-for="CrmMedicoSolicitante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChaveAutenticacao" class="control-label"></label>
+                <input asp-for="ChaveAutenticacao" class="form-control" />
+                <span asp-validation-for="ChaveAutenticacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomePaciente" class="control-label"></label>
+                <input asp-for="NomePaciente" class="form-control" />
+                <span asp-validation-for="NomePaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CPF" class="control-label"></label>
+                <input asp-for="CPF" class="form-control" />
+                <span asp-validation-for="CPF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RG" class="control-label"></label>
+                <input asp-for="RG" class="form-control" />
+                <span asp-validation-for="RG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CadUnicoSaude" class="control-label"></label>
+                <input asp-for="CadUnicoSaude" class="form-control" />
+                <span asp-validation-for="CadUnicoSaude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefone" class="control-label"></label>
+                <input id="telefone" asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Celular" class="control-label"></label>
+                <input id="celular" asp-for="Celular" class="form-control" />
+                <span asp-validation-for="Celular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Endereco" class="control-label"></label>
+                <input asp-for="Endereco" class="form-control" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Complemento" class="control-label"></label>
+                <input asp-for="Complemento" class="form-control" />
+                <span asp-validation-for="Complemento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cidade" class="control-label"></label>
+                <input asp-for="Cidade" class="form-control" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CEP" class="control-label"></label>
+                <input asp-for="CEP" class="form-control" />
+                <span asp-validation-for="CEP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CID" class="control-label"></label>
+                <input asp-for="CID" class="form-control" />
+                <span asp-validation-for="CID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IndicacaoMedica" class="control-label"></label>
+                <input asp-for="IndicacaoMedica" class="form-control" />
+                <span asp-validation-for="IndicacaoMedica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IndicacaoTratamento" class="control-label"></label>
+                <input asp-for="IndicacaoTratamento" class="form-control" />
+                <span asp-validation-for="IndicacaoTratamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+< br/>
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $('#cpf').mask('000.000.000-00', { placeholder: "___.___.___-__" });
+            $('#cep').mask('00000-00', { placeholder: "_____-__" });
+            $('#rg').mask('00.000.000-00', { placeholder: "__.___.___-__" });
+            $('#telefone').mask('0000-0000', { placeholder: "____-____" });
+            $('#celular').mask('(00)00000-0000', { placeholder: "(__)_____-____" });
+
+        });
+    </script>
+}
