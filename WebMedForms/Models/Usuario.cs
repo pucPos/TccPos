@@ -14,5 +14,13 @@ namespace WebMedForms.Models
         [Display(Name = "Nome")]
         [Column("Nome")]
         public string Nome { get; set; }
+
+        [Display(Name = "Senha")]
+        [Column("Senha")]
+        public string Senha { get; set; }
+
+        [Column("Role")]
+        public string Role { get; set; }
+
     }
 }

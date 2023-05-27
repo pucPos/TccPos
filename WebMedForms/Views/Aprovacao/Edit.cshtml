@@ -1,0 +1,44 @@
+﻿@model WebMedForms.Models.Solicitacao
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Solicitação</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <br>
+            <div class="col-md-6">
+                <label class="form-label">Defina a prioridade da solicitação</label>
+                @Html.DropDownList("Prioridade", Html.GetEnumSelectList<Enumeradores.Prioridade>(), "Selecione a Prioridade", new {@class="form-control"})
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="Aprovar Solicitação" class="btn btn-primary" /> |
+                <a class="btn btn-primary" asp-action="Index">Retornar às solicitações</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $('#cpf').mask('000.000.000-00', { placeholder: "___.___.___-__" });
+            $('#cep').mask('00000-00', { placeholder: "_____-__" });
+            $('#rg').mask('00.000.000-00', { placeholder: "__.___.___-__" });
+            $('#telefone').mask('0000-0000', { placeholder: "____-____" });
+            $('#celular').mask('(00)00000-0000', { placeholder: "(__)_____-____" });
+
+        });
+    </script>
+}

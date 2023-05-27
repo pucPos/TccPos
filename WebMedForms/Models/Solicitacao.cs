@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WebMedForms.Models
 {
@@ -11,7 +12,10 @@ namespace WebMedForms.Models
         [Column("Id")]
         public int Id { get; set; }
 
-        [Display(Name = "Nome Médico Solicitante")]
+        [Column("CodStatus")]
+        public int CodStatus { get; set; }
+
+        [Display(Name = "Médico Solicitante")]
         [Column("nome_medico")]
         public string NomeMedicoSolicitante { get; set; }
 
@@ -23,7 +27,7 @@ namespace WebMedForms.Models
         [Column("chave_autenticacao")]
         public string ChaveAutenticacao { get; set; }
 
-        [Display(Name = "Nome Paciente")]
+        [Display(Name = "Paciente")]
         [Column("nome_paciente")]
         public string NomePaciente { get; set; }
 
@@ -34,6 +38,10 @@ namespace WebMedForms.Models
         [Display(Name = "RG")]
         [Column("rg")]
         public string RG { get; set; }
+
+        [Display(Name = "Data de Nascimento")]
+        [Column("data_nascimento")]
+        public DateTime DataNascimento { get; set; }
 
         [Display(Name = "Cad. Único Saúde")]
         [Column("cad_unico_saude")]
@@ -81,7 +89,22 @@ namespace WebMedForms.Models
 
         [Display(Name = "Indicação Tratamento")]
         [Column("indicacao_tratamento")]
-        public int IndicacaoTratamento { get; set; }
+        public string IndicacaoTratamento { get; set; }
+
+        [Column("prioridade"), AllowNull]
+        public string Prioridade { get; set; } = "baixa";
+
+        [Display(Name = "Data Agendamento 1")]
+        [Column("data_agendamento_1")]
+        public DateTime DataAgendamento1 { get; set; }
+
+        [Display(Name = "Data Agendamento 2")]
+        [Column("data_agendamento_2")]
+        public DateTime DataAgendamento2 { get; set; }
+        
+        [Display(Name = "Data Agendamento 3")]
+        [Column("data_agendamento_3")]
+        public DateTime DataAgendamento3 { get; set; }
 
     }
 }

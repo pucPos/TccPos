@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebMedForms.Data;
 
@@ -10,9 +11,11 @@ using WebMedForms.Data;
 namespace WebMedForms.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20230527224413_prioridade")]
+    partial class prioridade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,18 +77,6 @@ namespace WebMedForms.Migrations
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("crm");
-
-                    b.Property<DateTime>("DataAgendamento1")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("data_agendamento_1");
-
-                    b.Property<DateTime>("DataAgendamento2")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("data_agendamento_2");
-
-                    b.Property<DateTime>("DataAgendamento3")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("data_agendamento_3");
 
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("datetime(6)")

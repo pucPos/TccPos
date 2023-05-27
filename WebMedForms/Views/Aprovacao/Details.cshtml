@@ -1,10 +1,10 @@
 ﻿@model WebMedForms.Models.Solicitacao
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Details";
 }
 
-<h1>Excluir essa solicitação?</h1>
+<h1>Detalhes da solicitação</h1>
 
 <div>
     <hr />
@@ -124,10 +124,7 @@
             @Html.DisplayFor(model => model.IndicacaoTratamento)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Excluir" class="btn btn-danger" /> |
-        <a class="btn btn-primary" asp-action="Index">Retornar às solicitações</a>
-    </form>
+</div>
+<div>
+    <a class="btn btn-primary"  asp-action="Index">Retornar às solicitações</a>
 </div>
