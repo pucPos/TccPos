@@ -12,9 +12,30 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CodStatus" />
+            <input type="hidden" asp-for="NomeMedicoSolicitante" />
+            <input type="hidden" asp-for="CrmMedicoSolicitante" />
+            <input type="hidden" asp-for="ChaveAutenticacao" />
+            <input type="hidden" asp-for="NomePaciente" />
+            <input type="hidden" asp-for="CPF" />
+            <input type="hidden" asp-for="RG" />
+            <input type="hidden" asp-for="DataNascimento" />
+            <input type="hidden" asp-for="CadUnicoSaude" />
+            <input type="hidden" asp-for="Telefone" />
+            <input type="hidden" asp-for="Celular" />
+            <input type="hidden" asp-for="Email" />
+            <input type="hidden" asp-for="Endereco" />
+            <input type="hidden" asp-for="Complemento" />
+            <input type="hidden" asp-for="Cidade" />
+            <input type="hidden" asp-for="Estado" />
+            <input type="hidden" asp-for="CEP" />
+            <input type="hidden" asp-for="CID" />
+            <input type="hidden" asp-for="IndicacaoMedica" />
+            <input type="hidden" asp-for="IndicacaoTratamento" />
+            <input type="hidden" asp-for="Prioridade" />
             <br>
             <div class="col-md-6">
-                <label class="form-label">Defina a prioridade da solicitação</label>
+                <label style="color:red;" class=" form-label">Defina a prioridade da solicitação</label>
                 @Html.DropDownList("Prioridade", Html.GetEnumSelectList<Enumeradores.Prioridade>(), "Selecione a Prioridade", new {@class="form-control"})
             </div>
             <br>

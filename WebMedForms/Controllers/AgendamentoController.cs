@@ -65,7 +65,7 @@ namespace WebMedForms.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CodStatus,NomeMedicoSolicitante,CrmMedicoSolicitante,ChaveAutenticacao,NomePaciente,CPF,RG,DataNascimento,CadUnicoSaude,Telefone,Celular,Email,Endereco,Complemento,Cidade,Estado,CEP,CID,IndicacaoMedica,IndicacaoTratamento,Prioridade")] Solicitacao solicitacao)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CodStatus,NomeMedicoSolicitante,CrmMedicoSolicitante,ChaveAutenticacao,NomePaciente,CPF,RG,DataNascimento,CadUnicoSaude,Telefone,Celular,Email,Endereco,Complemento,Cidade,Estado,CEP,CID,IndicacaoMedica,IndicacaoTratamento,Prioridade,DataAgendamento1,DataAgendamento2,DataAgendamento3")] Solicitacao solicitacao)
         {
             if (id != solicitacao.Id)
             {
@@ -76,6 +76,7 @@ namespace WebMedForms.Controllers
             {
                 try
                 {
+                    solicitacao.CodStatus = 3;
                     _context.Update(solicitacao);
                     await _context.SaveChangesAsync();
                 }

@@ -106,5 +106,8 @@ namespace WebMedForms.Models
         [Column("data_agendamento_3")]
         public DateTime DataAgendamento3 { get; set; }
 
+        [Display(Name = "Data Confirmação")]
+        [Column("data_confirmacao")]
+        public DateTime DataConfirmacao { get; set; }
     }
 }

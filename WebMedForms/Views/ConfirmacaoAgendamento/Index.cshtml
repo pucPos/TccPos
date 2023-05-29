@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebMedForms.Models.Solicitacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Solicitações</h1>
+
+<table id="Tabela" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeMedicoSolicitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomePaciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IndicacaoMedica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IndicacaoTratamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prioridade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeMedicoSolicitante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomePaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IndicacaoMedica)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IndicacaoTratamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prioridade)
+                </td>
+                @if (item.CodStatus == 3)
+                {
+                    <td>
+                        <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Detalhes</a>
+                        <a asp-action="Edit" class="btn btn-success" asp-route-id="@item.Id">Confirmar</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Detalhes</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#Tabela').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+                }
+            })
+        });
+    </script>
+}

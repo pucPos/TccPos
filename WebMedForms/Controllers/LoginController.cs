@@ -28,10 +28,6 @@ namespace LoginAspNetCoreEFCore.Controllers
             {
                 ViewBag.Erro = "Usuário e/ou senha estão incorretos";
             }
-            if (User.Identity.IsAuthenticated)
-            {
-                
-            }
             return View();
         }
 
@@ -79,6 +75,10 @@ namespace LoginAspNetCoreEFCore.Controllers
                 else if (role == "3")
                 {
                     return RedirectToAction("Index", "Agendamento");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "ConfirmacaoAgendamento");
                 }
             }
             else
