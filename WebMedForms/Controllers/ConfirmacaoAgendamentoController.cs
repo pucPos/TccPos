@@ -25,7 +25,8 @@ namespace WebMedForms.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.Solicitacao != null ?
-                          View(await GetSolicitacoes().Where(x => x.CodStatus == 3 || x.CodStatus == 4).ToListAsync()) :
+                          //View(await GetSolicitacoes().Where(x => x.CodStatus == 3 || x.CodStatus == 4).ToListAsync()) :
+                          View(await GetSolicitacoes().Where(x => x.CodStatus == 3).ToListAsync()) :
                           Problem("Entity set 'Contexto.Solicitacao'  is null.");
         }
 
@@ -51,7 +52,7 @@ namespace WebMedForms.Controllers
             return View(solicitacao);
         }
 
-        public async Task<IActionResult> Edit(int? id, string erro = null)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Solicitacao == null)
             {
@@ -63,10 +64,7 @@ namespace WebMedForms.Controllers
             {
                 return NotFound();
             }
-            if (!string.IsNullOrEmpty(erro))
-            {
-                ViewBag.erro = erro;
-            }
+
             return View(solicitacao);
         }
 
@@ -83,11 +81,6 @@ namespace WebMedForms.Controllers
             {
                 try
                 {
-                    if (solicitacao.DataConfirmacao != solicitacao.DataAgendamento1 && solicitacao.DataConfirmacao != solicitacao.DataAgendamento2 && solicitacao.DataConfirmacao != solicitacao.DataAgendamento3)
-                    {
-                        ViewBag.Erro = "A data da confirmação deve ser uma das três datas disponíveis.";
-                        return RedirectToAction("Edit", "ConfirmacaoAgendamento", new { id, erro = "A data da confirmação deve ser uma das três datas disponíveis." });
-                        }
                     solicitacao.CodStatus = 4;
                         _context.Update(solicitacao);
                         await _context.SaveChangesAsync();
